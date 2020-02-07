@@ -1,5 +1,5 @@
 # Human bytes
-[![License](https://img.shields.io/crates/l/human_bytes-rs?style=flat-square)](https://gitlab.com/forkbomb9/human_bytes-rs/-/blob/master/LICENSE)
+[![License](https://img.shields.io/crates/l/human_bytes?style=flat-square)](https://gitlab.com/forkbomb9/human_bytes-rs/-/blob/master/LICENSE)
 [![Latest version](https://img.shields.io/crates/v/human_bytes?style=flat-square)](https://crates.io/crates/human_bytes)
 [![Build status](https://img.shields.io/gitlab/pipeline/forkbomb9/human_bytes-rs?style=flat-square)]()
 
