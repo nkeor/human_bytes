@@ -1,0 +1,17 @@
+[package]
+name = "human_bytes"
+version = "0.1.0"
+authors = ["Namkhai B. <namkhai.n3@protonmail.com>"]
+edition = "2018"
+
+description = "Crate to convert bytes into human-readable values"
+
+repository = "https://gitlab.com/forkbomb9/human_bytes-rs"
+readme = "README.md"
+keywords = ["bytes", "conversion"]
+license = "BSD-2-Clause"
+
+
+[badges]
+# GitLab CI
+gitlab = { repository = "forkbomb9/human_bytes-rs"}
