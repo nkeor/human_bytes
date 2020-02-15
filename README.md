@@ -56,5 +56,8 @@ And no way you're going to use `u128`'s. Anyway, `human_bytes(std::u64::MAX as f
 
 For now, I only test correct conversions up to 2.5 terabytes.
 
+# Changelog
+Check [CHANGELOG.md](./CHANGELOG.md)
+
 # License
 BSD 2-clause - Copyright (c) 2020 Namkhai Bourquin (forkbomb9)
