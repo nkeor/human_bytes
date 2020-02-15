@@ -17,7 +17,6 @@
 //! ```
 //! For more info, check the [README.md](https://gitlab.com/forkbomb9/human_bytes-rs)
 
-
 /// Performs the conversion
 pub fn human_bytes<T: Into<f64>>(size: T) -> String {
     let size = size.into();
@@ -30,7 +29,15 @@ pub fn human_bytes<T: Into<f64>>(size: T) -> String {
     // Just be future-proof
     let suffix = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
+    #[cfg(feature = "fast")]
+    // Source for this hack: https://stackoverflow.com/a/28656825
+    let stringed = lexical::to_string((1024_f64.powf(base - base.floor()) * 10.0).round() / 10.0);
+    // This is faster, but leaves you with things like "2.500000000000002 TB" or 15.299999999813716 GB.
+    // let stringed = lexical::to_string(1024_f64.powf(base - base.floor()));
+
+    #[cfg(not(feature = "fast"))]
     let stringed = format!("{:.1}", 1024_f64.powf(base - base.floor()));
+
     format!(
         "{} {}",
         stringed.trim_end_matches(".0"),

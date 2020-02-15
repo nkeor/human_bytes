@@ -11,7 +11,14 @@ readme = "README.md"
 keywords = ["bytes", "conversion"]
 license = "BSD-2-Clause"
 
-
 [badges]
 # GitLab CI
 gitlab = { repository = "forkbomb9/human_bytes-rs"}
+
+[features]
+default = []
+
+fast = [ "lexical" ]
+
+[dependencies]
+lexical =  { version = "5.2", optional = true }
