@@ -11,7 +11,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-human_bytes = "0.1"
+human_bytes = "0.2"
 ```
 
 And then
@@ -30,9 +30,8 @@ assert_eq!(human_bytes(563_200_u64 as f64), "550 KB".to_string());
 `human_bytes` is dependency-free, but if you want an +/- 15% speed improvement, I have a `fast` feature (which depends on [lexical](https://github.com/Alexhuszagh/rust-lexical))
 ```toml
 [dependencies]
-human_bytes = { git = "https://github.com/forkbomb9/human_bytes-rs", features = "fast" }
+human_bytes = { version = "0.2", features = "fast" }
 ```
-(Using `git` because the feature is on master and not yet released)
 
 # About
 This crate is based on a PHP function I found [here](https://math.stackexchange.com/questions/247444/explain-convertion-algorithm-from-bytes-to-kb-mb-gb).

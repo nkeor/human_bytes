@@ -1,6 +1,6 @@
 [package]
 name = "human_bytes"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Namkhai B. <namkhai.n3@protonmail.com>"]
 edition = "2018"
 
