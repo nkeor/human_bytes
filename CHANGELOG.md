@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-* README.md example to enable the `fast` feature
+* The README example on how to enable the `fast` feature
 
 ## [0.2] 2020-02-15
 ### Added
