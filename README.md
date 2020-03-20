@@ -44,8 +44,10 @@ It has some tests I wrote to check that the conversion is correct, and it return
 
 ## Limitations
 The function uses `f64` floating point numbers,
-which ranges from $`±0000000000000000×10^{−398}`$ to $`±9999999999999999×10^{369}`$ acording to [Wikipedia](https://en.wikipedia.org/wiki/Decimal64_floating-point_format) 
-That's a number so big, that running `human_bytes(std::f64::MAX)` `panic!`'s with `'index out of bounds: the len is 9 but the index is 102'`. 
+which ranges from $`±0000000000000000×10^{−398}`$ to $`±9999999999999999×10^{369}`$ acording to [Wikipedia](https://en.wikipedia.org/wiki/Decimal64_floating-point_format)
+
+That's a number so big, that running `human_bytes(std::f64::MAX)` `panic!`'s with `'index out of bounds: the len is 9 but the index is 102'`.
+
 It's because I only have suffixes up to [yottabyte](https://en.wikipedia.org/wiki/Yottabyte)s, which quoting Wikipedia
 
 > In 2010, it was estimated that storing a yottabyte on terabyte-size disk drives would require one million city block-size data-centers, as big as the states of Delaware and Rhode Island combined.[1] By late 2016 memory density had increased to the point where a yottabyte could be stored on SD cards occupying roughly twice the size of the Hindenburg[2] (around 400 thousand cubic metres).
