@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * The README example on how to enable the `fast` feature
 
+### Changed
+* Simplified the README
+
 ## [0.2] 2020-02-15
 ### Added
 * A `fast` feature, which improves performance by using [lexical](https://github.com/Alexhuszagh/rust-lexical) instead of `format!` to convert `f64`s to strings
