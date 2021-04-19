@@ -31,18 +31,22 @@ pub fn human_bytes<T: Into<f64>>(size: T) -> String {
 
     #[cfg(feature = "fast")]
     // Source for this hack: https://stackoverflow.com/a/28656825
-    let stringed = lexical::to_string((1024_f64.powf(base - base.floor()) * 10.0).round() / 10.0);
+    let mut result = lexical::to_string((1024_f64.powf(base - base.floor()) * 10.0).round() / 10.0)
+        .trim_end_matches(".0")
+        .to_owned();
     // This is faster, but leaves you with things like "2.500000000000002 TB" or 15.299999999813716 GB.
-    // let stringed = lexical::to_string(1024_f64.powf(base - base.floor()));
+    // let result = lexical::to_string(1024_f64.powf(base - base.floor()));
 
     #[cfg(not(feature = "fast"))]
-    let stringed = format!("{:.1}", 1024_f64.powf(base - base.floor()));
+    let mut result = format!("{:.1}", 1024_f64.powf(base - base.floor()),)
+        .trim_end_matches(".0")
+        .to_owned();
 
-    format!(
-        "{} {}",
-        stringed.trim_end_matches(".0"),
-        suffix[base.floor() as usize]
-    )
+    // Add suffix
+    result.push(' ');
+    result.push_str(suffix[base.floor() as usize]);
+
+    result
 }
 
 #[cfg(test)]
