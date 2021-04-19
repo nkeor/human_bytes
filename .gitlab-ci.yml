@@ -1,37 +1,26 @@
 cache:
-  key: "$CI_JOB_NAME"
-  untracked: true
+  key: ${CI_COMMIT_REF_SLUG}
   paths:
-    - cargo/
     - target/
+    # Cache cargo downloads (see
+    # https://doc.rust-lang.org/cargo/guide/cargo-home.html#caching-the-cargo-home-in-ci)
+    - cargo_home/bin/
+    - cargo_home/registry/index/
+    - cargo_home/registry/cache/
+    - cargo_home/git/db/
 
 stages:
-  - build
+  - check
 
-.build_template: &build
+before_script:
+  - export CARGO_HOME=$PWD/cargo_home
+  - mkdir -pv $CARGO_HOME
+
+check:
   image: "rust:latest"
-  stage: build
+  stage: check
   before_script:
-    - export PATH="/root/.cargo/bin:$PATH"
-    - rustup target add $TARGET || true # Ignore failures when the target and toolchain are the same
-    - cargo update
+    - export PATH="$CARGO_HOME/bin:$PATH"
   script:
-    - cargo build --examples --target=$TARGET
-    - cargo build --tests --target=$TARGET
-    - cargo test --target=$TARGET
-
-x86_64-unknown-linux-gnu:
-  <<: *build
-  variables:
-    TARGET: x86_64-unknown-linux-gnu
-
-# WIP for these, don't work yet
-# x86_64-unknown-freebsd:
-#   <<: *build
-#   variables:
-#     TARGET: x86_64-unknown-freebsd
-
-# x86_64-pc-windows-gnu:
-#   <<: *build
-#   variables:
-#     TARGET: x86_64-pc-windows-gnu
+    - cargo check
+    - cargo test
