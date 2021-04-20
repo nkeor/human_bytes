@@ -17,6 +17,14 @@
 //! ```
 //! For more info, check the [README.md](https://gitlab.com/forkbomb9/human_bytes-rs)
 
+#[cfg(not(feature = "bibytes"))]
+// Just be future-proof
+const SUFFIX: [&'static str; 9] = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+#[cfg(feature = "bibytes")]
+// Just be future-proof
+const SUFFIX: [&'static str; 9] = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
+
 /// Performs the conversion
 pub fn human_bytes<T: Into<f64>>(size: T) -> String {
     let size = size.into();
@@ -26,8 +34,6 @@ pub fn human_bytes<T: Into<f64>>(size: T) -> String {
     }
 
     let base = size.log10() / 1024_f64.log10();
-    // Just be future-proof
-    let suffix = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
     #[cfg(feature = "fast")]
     // Source for this hack: https://stackoverflow.com/a/28656825
@@ -44,7 +50,7 @@ pub fn human_bytes<T: Into<f64>>(size: T) -> String {
 
     // Add suffix
     result.push(' ');
-    result.push_str(suffix[base.floor() as usize]);
+    result.push_str(SUFFIX[base.floor() as usize]);
 
     result
 }

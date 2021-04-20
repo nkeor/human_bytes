@@ -19,6 +19,7 @@ gitlab = { repository = "forkbomb9/human_bytes-rs"}
 default = []
 
 fast = [ "lexical" ]
+bibytes = []
 
 [dependencies]
 lexical =  { version = "5.2", optional = true }

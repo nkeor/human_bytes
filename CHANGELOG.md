@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * Switch from using `format!` to `String.push` and `String.push_str`. +/- 8% performance improvement.
 
+### Added
+* A `bibytes` feature, which allows users to use KiB, GiB, etc instead of KB, GB, etc.
+
 ## [0.2.1] 2020-04-08
 ### Fixed
 * The README example on how to enable the `fast` feature

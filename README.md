@@ -29,6 +29,8 @@ assert_eq!(human_bytes(563_200_u64 as f64), "550 KB".to_string());
 // | because `f64` doesn't implement `std::convert::From<u64>`
 ```
 
+There's a `bibytes` feature, which enables the [power of 2](https://en.wikipedia.org/wiki/Byte#Units_based_on_powers_of_2) unit (KiB, MiB, GiB, etc)
+
 `human_bytes` is dependency-free, but if you want an +/- 15% speed improvement, I have a `fast` feature (which depends on [lexical](https://github.com/Alexhuszagh/rust-lexical))
 
 ```toml
