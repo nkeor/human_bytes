@@ -1,7 +1,16 @@
-//! # human_bytes
-//!
-//! `human_bytes` is a Rust crate to convert bytes into human-readable values.
+//! ## A Rust crate that convert bytes into human-readable values.
 
+//!
+//! It can return either KB/MB/GB/TB or KiB/MiB/GiB/TiB via the `bibytes` feature,
+//! which enables the [IEC prefix](https://en.wikipedia.org/wiki/Byte#Units_based_on_powers_of_2).
+//!
+//! > `(1 KB = 1024 B, 1 KiB = 1024 B, the only thing that changes is the suffix)`
+//!
+//! It supports from 0 bytes to several yottabytes (I cannot tell how many because I have to use `u128`s
+//! to fit a single YB)
+//!
+//! For more info, check the [README.md](https://gitlab.com/forkbomb9/human_bytes-rs)
+//!
 //! # Example
 //!
 //! ```no_run
@@ -14,8 +23,10 @@
 //! // |
 //! // | Needed only when you're using `u64` values,
 //! // | because `f64` doesn't implement `std::convert::From<u64>`
+//!
+//! // With the `bibytes` feature enabled:
+//! assert_eq!(human_bytes(563_200_u32), "550 KiB".to_string());
 //! ```
-//! For more info, check the [README.md](https://gitlab.com/forkbomb9/human_bytes-rs)
 
 #[cfg(test)]
 mod tests;
@@ -28,7 +39,7 @@ const SUFFIX: [&'static str; 9] = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"
 // Just be future-proof
 const SUFFIX: [&'static str; 9] = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
 
-/// Performs the conversion
+/// Converts bytes to human-readable values
 pub fn human_bytes<T: Into<f64>>(size: T) -> String {
     let size = size.into();
 
