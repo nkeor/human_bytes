@@ -63,4 +63,4 @@ It has some tests I wrote to check that the conversion is correct, and it return
 Check the [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
-BSD 2-clause - Copyright (c) 2020 Namkhai B. (forkbomb9)
+[BSD 2-clause](./LICENSE) (c) 2020 Namkhai B.
