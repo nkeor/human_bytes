@@ -20,9 +20,9 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-human_bytes = "0.2"
+human_bytes = "0.3"
 # Or
-human_bytes = { version = "0.2", features = ["bibytes"] }
+human_bytes = { version = "0.3", features = ["bibytes"] }
 ```
 
 And then
@@ -48,7 +48,7 @@ in the number-to-string conversion
 
 ```toml
 [dependencies]
-human_bytes = { version = "0.2", features = ["fast"] }
+human_bytes = { version = "0.3", features = ["fast"] }
 ```
 
 ## About
