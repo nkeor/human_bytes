@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+* Updated `lexical` to v6.0
+
 ## [0.3] 2021-04-20
 ### Fixed
 * Switch from using `format!` to `String.push` and `String.push_str`. +/- 8% performance improvement.
