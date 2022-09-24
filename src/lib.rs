@@ -9,7 +9,7 @@
 //! It supports from 0 bytes to several yottabytes (I cannot tell how many because I have to use `u128`s
 //! to fit a single YB)
 //!
-//! For more info, check the [README.md](https://gitlab.com/forkbomb9/human_bytes-rs)
+//! For more info, check the [README.md](https://sr.ht/~f9/human_bytes)
 //!
 //! # Example
 //!

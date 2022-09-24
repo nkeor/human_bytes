@@ -6,20 +6,15 @@ edition = "2018"
 
 description = "Crate to convert bytes into human-readable values"
 
-repository = "https://gitlab.com/forkbomb9/human_bytes-rs"
+repository = "https://sr.ht/~f9/human_bytes"
 readme = "README.md"
 keywords = ["bytes", "conversion", "format", "value-formatting", "utility"]
 license = "BSD-2-Clause"
 
-[badges]
-# GitLab CI
-gitlab = { repository = "forkbomb9/human_bytes-rs"}
-
 [features]
 default = []
-
 fast = [ "lexical" ]
 bibytes = []
 
 [dependencies]
-lexical =  { version = "6.0", optional = true }
+lexical = { version = "6.0", optional = true }
