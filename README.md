@@ -1,6 +1,6 @@
 # human_bytes
 
-> A Rust crate that converts bytes into human-readable values.
+> A Rust crate & cli to convert bytes into human-readable values.
 
 [![License](https://img.shields.io/crates/l/human_bytes?style=flat-square)](https://gitlab.com/forkbomb9/human_bytes-rs/-/blob/master/LICENSE)
 [![Latest version](https://img.shields.io/crates/v/human_bytes?style=flat-square)](https://crates.io/crates/human_bytes)
@@ -15,6 +15,17 @@ It supports from 0 bytes to several yottabytes (I cannot tell how many because I
 to fit a single YB)
 
 ## Usage
+
+### As a CLI
+
+* (Optional) Install [Just](https://just.systems/)
+* Build:
+  - With just: `just`
+  - Plain cargo: `cargo build --release --features 'build-binary fast' --bin hb`
+* Copy `target/release/hb` to somewhere in your `$PATH`
+* Run `hb <bytes>` or `echo <bytes> | hb`
+
+### As a library
 
 Add to your `Cargo.toml`:
 
