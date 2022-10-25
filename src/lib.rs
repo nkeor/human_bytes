@@ -14,11 +14,11 @@ mod tests;
 
 #[cfg(not(feature = "si-units"))]
 // Just be future-proof
-const SUFFIX: [&'static str; 9] = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+const SUFFIX: [&str; 9] = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
 #[cfg(feature = "si-units")]
 // Just be future-proof
-const SUFFIX: [&'static str; 9] = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
+const SUFFIX: [&str; 9] = ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
 
 #[cfg(not(feature = "si-units"))]
 const UNIT: f64 = 1000.0;
@@ -37,21 +37,24 @@ pub fn human_bytes<T: Into<f64>>(bytes: T) -> String {
     let base = size.log10() / UNIT.log10();
 
     #[cfg(feature = "fast")]
-    // Source for this hack: https://stackoverflow.com/a/28656825
-    let mut result = lexical::to_string((UNIT.powf(base - base.floor()) * 10.0).round() / 10.0)
-        .trim_end_matches(".0")
-        .to_owned();
-    // This is faster, but leaves you with things like "2.500000000000002 TB" or 15.299999999813716 GB.
-    // let result = lexical::to_string(UNIT.powf(base - base.floor()));
+    {
+        let mut buffer = ryu::Buffer::new();
+        let result = buffer
+            // Source for this hack: https://stackoverflow.com/a/28656825
+            .format((UNIT.powf(base - base.floor()) * 10.0).round() / 10.0)
+            .trim_end_matches(".0");
+
+        // Add suffix
+        [result, SUFFIX[base.floor() as usize]].join(" ")
+    }
 
     #[cfg(not(feature = "fast"))]
-    let mut result = format!("{:.1}", UNIT.powf(base - base.floor()),)
-        .trim_end_matches(".0")
-        .to_owned();
+    {
+        let result = format!("{:.1}", UNIT.powf(base - base.floor()),)
+            .trim_end_matches(".0")
+            .to_owned();
 
-    // Add suffix
-    result.push(' ');
-    result.push_str(SUFFIX[base.floor() as usize]);
-
-    result
+        // Add suffix
+        [&result, SUFFIX[base.floor() as usize]].join(" ")
+    }
 }

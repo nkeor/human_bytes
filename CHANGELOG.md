@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Moved the project's home to [SourceHut](https://sr.ht/~f9/human_bytes)
+* Switched from `lexical` to [`ryu`](https://github.com/dtolnay/ryu)
 
 ## [0.3.1] 2022-02-22
 ### Changed

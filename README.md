@@ -31,7 +31,7 @@ Add to your `Cargo.toml`:
 ```toml
 [dependencies]
 human_bytes = "0.3"
-# Or
+# or, to disable the SI Units:
 human_bytes = { version = "0.3", default-features = false }
 ```
 
@@ -52,9 +52,9 @@ assert_eq!(human_bytes(563_200_u64 as f64), "550 KiB".to_string());
 assert_eq!(human_bytes(550_000_u32), "550 KB".to_string());
 ```
 
-The crate is dependency-free, but if you want an +/- 15% speed improvement, there's a `fast` feature
-that uses [lexical](https://github.com/Alexhuszagh/rust-lexical) instead of `std::format!`
-in the number-to-string conversion
+The crate is dependency-free, but you can boost the speed by enabling the `fast` feature,
+which switches from using `std::format!` to [ryu](https://github.com/dtolnay/ryu)
+to convert floats to strings.
 
 ```toml
 [dependencies]
