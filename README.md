@@ -6,7 +6,7 @@
 [![Latest version](https://img.shields.io/crates/v/human_bytes?style=flat-square)](https://crates.io/crates/human_bytes)
 [![Build status](https://img.shields.io/gitlab/pipeline/forkbomb9/human_bytes-rs?style=flat-square)]()
 
-It can return either KiB/MiB/GiB/TiB or KB/MB/GB/TB by disabling `si-units` feature.
+It can return either KiB/MiB/GiB/TiB or KB/MB/GB/TB by disabling the `si-units` feature.
 
 > 1 KiB = 1024 B, 1 KB = 1000 B
 
@@ -19,7 +19,7 @@ to fit a single YB)
 
 * (Optional) Install [Just](https://just.systems/)
 * Build:
-  - With just: `just`
+  - With just: `just build-binary`
   - Plain cargo: `cargo build --release --features 'build-binary fast' --bin hb`
 * Copy `target/release/hb` to somewhere in your `$PATH`
 * Run `hb <bytes>` or `echo <bytes> | hb`
