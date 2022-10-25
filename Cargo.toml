@@ -12,8 +12,8 @@ keywords = ["bytes", "conversion", "format", "value-formatting", "utility"]
 license = "BSD-2-Clause"
 
 [features]
-default = []
-bibytes = []
+default = ["si-units"]
+si-units = []
 build-binary = ["anyhow", "atty", "lexopt"]
 fast = ["lexical"]
 
