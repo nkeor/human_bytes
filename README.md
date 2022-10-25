@@ -30,9 +30,9 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-human_bytes = "0.3"
+human_bytes = "0.4"
 # or, to disable the SI Units:
-human_bytes = { version = "0.3", default-features = false }
+human_bytes = { version = "0.4", default-features = false }
 ```
 
 And then
@@ -58,7 +58,7 @@ to convert floats to strings.
 
 ```toml
 [dependencies]
-human_bytes = { version = "0.3", features = ["fast"] }
+human_bytes = { version = "0.4", features = ["fast"] }
 ```
 
 ## About
@@ -73,4 +73,4 @@ It has some tests I wrote to check that the conversion is correct, and it return
 Check the [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
-[BSD 2-clause](./LICENSE) (c) 2020 Namkhai B.
+[BSD 2-clause](./LICENSE) (c) 2020-2022 Namkhai B.
