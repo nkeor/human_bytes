@@ -13,8 +13,8 @@ stages:
   - check
 
 before_script:
-  - export CARGO_HOME=$PWD/cargo_home
-  - mkdir -pv $CARGO_HOME
+  - export CARGO_HOME="$PWD/cargo_home"
+  - mkdir -p $CARGO_HOME
 
 check:
   image: "rust:latest"
@@ -24,3 +24,6 @@ check:
   script:
     - cargo check
     - cargo test
+    - cargo test --features fast
+    - cargo test --no-default-features
+    - cargo test --no-default-features --features fast
