@@ -1,6 +1,6 @@
 //! ## A Rust crate & cli to convert bytes into human-readable values.
 
-//! It can return either KiB/MiB/GiB/TiB or KB/MB/GB/TB by disabling `si-units` feature.
+//! It can return either KiB/MiB/GiB/TiB or KB/MB/GB/TB by disabling the `si-units` feature.
 //!
 //! > 1 KiB = 1024 B, 1 KB = 1000 B
 //!

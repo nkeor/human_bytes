@@ -3,13 +3,13 @@ name = "human_bytes"
 version = "0.4.0"
 authors = ["Namkhai B. <me@forkbomb9.ch>"]
 edition = "2018"
-
 description = "Crate to convert bytes into human-readable values"
-
-repository = "https://sr.ht/~f9/human_bytes"
-readme = "README.md"
-keywords = ["bytes", "conversion", "format", "value-formatting", "utility"]
 license = "BSD-2-Clause"
+
+homepage = "https://sr.ht/~f9/human_bytes"
+repository = "https://git.sr.ht/~f9/human_bytes"
+categories = ["value-formatting"]
+keywords = ["bytes", "conversion", "format", "value-formatting", "utility"]
 
 [features]
 default = ["si-units"]
