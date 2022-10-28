@@ -35,8 +35,8 @@ mod decimal {
     }
 }
 
-#[cfg(feature = "bibytes")]
-mod bibytes {
+#[cfg(feature = "si-units")]
+mod binary {
     use crate::human_bytes;
 
     #[test]
