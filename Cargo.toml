@@ -1,6 +1,6 @@
 [package]
 name = "human_bytes"
-version = "0.4.1"
+version = "0.4.2"
 authors = ["Namkhai B. <me@forkbomb9.ch>"]
 edition = "2018"
 description = "Crate to convert bytes into human-readable values"
