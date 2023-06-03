@@ -1,7 +1,6 @@
-use std::io::Read;
+use std::io::{stdin, IsTerminal, Read};
 
 use anyhow::Context;
-use atty::Stream;
 use human_bytes::human_bytes;
 use lexopt::prelude::*;
 
@@ -14,7 +13,7 @@ const fn usage() -> &'static str {
 fn main() -> anyhow::Result<()> {
     let mut bytes: Option<u64> = None;
 
-    if atty::is(Stream::Stdin) {
+    if stdin().is_terminal() {
         let mut cli = lexopt::Parser::from_env();
         while let Some(arg) = cli.next()? {
             match arg {
