@@ -2,9 +2,9 @@
 
 > A Rust crate & cli to convert bytes into human-readable values.
 
-[![License](https://img.shields.io/crates/l/human_bytes?style=flat-square)](https://gitlab.com/forkbomb9/human_bytes-rs/-/blob/master/LICENSE)
+[![License](https://img.shields.io/crates/l/human_bytes?style=flat-square)](./LICENSE)
 [![Latest version](https://img.shields.io/crates/v/human_bytes?style=flat-square)](https://crates.io/crates/human_bytes)
-[![Build status](https://img.shields.io/gitlab/pipeline/forkbomb9/human_bytes-rs?style=flat-square)]()
+[![Build status](https://img.shields.io/gitlab/pipeline/nkeor/human_bytes-rs?style=flat-square)]()
 
 It can return either KiB/MiB/GiB/TiB or KB/MB/GB/TB by disabling the `si-units` feature.
 
